@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- CSS only -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+    <title>Help desk</title>
+</head>
+<body>
+      <!--Nemu-->
+      <nav class="navbar bg-light">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="#">Konnecta</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+            <div class="offcanvas-header">
+              <h5 class="offcanvas-title" id="offcanvasNavbarLabel">Konnecta</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+            </div>
+            <div class="offcanvas-body">
+              <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+
+                <li class="nav-item">
+                  <a class="nav-link" href="/">Check List</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/rename">Foto rename</a>
+                  </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </nav>
+    <!--Corpo-->
+    <div>
+      <div class="container">
+        <div class="row">
+           
+          <form method="POST"  enctype="multipart/form-data" action="{{ url_for('raname') }}">
+            {{ form.csrf_token() }}
+
+            <div class="row">
+                <div class="col mt-2"><h5>01 - Modem com Etiqueta</h5> </div>
+                <div class="col">{{ form.photo1(class="form-control")}}</div>
+            </div>
+              <hr>
+            <div class="row">
+                <div class="col"><h5>02 - PC com Internet</h5> </div>
+                <div class="col">{{ form.photo2(class="form-control")}}</div>
+            </div>
+              <hr>
+            <div class="row">
+                <div class="col"><h5>03 - Parte de FRENTE da antena com logo</h5> </div>
+                <div class="col">{{ form.photo3(class="form-control")}}</div>
+            </div>
+              <hr>
+             <div class="row">
+                <div class="col"><h5>04 - Parte de TRÁS da antena (exibindo Parafusos)</h5> </div>
+                <div class="col">{{ form.photo4(class="form-control")}}</div>
+            </div>
+              <hr>
+            <div class="row">
+                <div class="col"><h5>05 - Haste de Aterramento</h5> </div>
+                <div class="col">{{ form.photo5(class="form-control")}}</div>
+            </div>
+              <hr>
+            <div class="row">
+                <div class="col"><h5>06 - Bloco de aterramento</h5> </div>
+                <div class="col">{{ form.photo6(class="form-control")}}</div>
+            </div>
+              <hr>
+            <div class="row">
+                <div class="col"><h5>07 - Isolamento da ETRIA</h5> </div>
+                <div class="col">{{ form.photo7(class="form-control")}}</div>
+            </div>
+              <hr>
+             <div class="row">
+                <div class="col"><h5>08 - Serial da ETRIA</h5> </div>
+                <div class="col">{{ form.photo8(class="form-control")}}</div>
+            </div>
+              <hr>
+             <div class="row">
+                <div class="col"><h5>09 - Serial do Modem</h5> </div>
+                <div class="col">{{ form.photo9(class="form-control")}}</div>
+            </div>
+              <hr>
+             <div class="row">
+                <div class="col"><h5>010 - Entrada do cabo no prédio("J" pingadeira)</h5> </div>
+                <div class="col">{{ form.photo10(class="form-control")}}</div>
+            </div>
+              <hr>
+             <div class="row">
+                <div class="col"><h5>11 - Facha do prédio</h5> </div>
+                <div class="col">{{ form.photo11(class="form-control")}}</div>
+            </div>
+              <hr>
+             <div class="row">
+                <div class="col"><h5>12 - TIPP</h5> </div>
+                <div class="col">{{ form.photo12(class="form-control")}}</div>
+            </div>
+              <hr>
+             <div class="row">
+                <div class="col"><h5>13 - Visada da ETRIA</h5> </div>
+                <div class="col">{{ form.photo13(class="form-control")}}</div>
+            </div>
+              <hr>
+             <div class="row">
+                <div class="col"><h5>14 - eSVT</h5> </div>
+                <div class="col">{{ form.photo14(class="form-control")}}</div>
+            </div>
+
+            <label class="form-label mt-4">Endereço para salvar as imagens:</label>
+            {{ form.destino(placeholder="Destino da Imagem", class="form-control") }}
+
+            <label class="form-label mt-4">Codigo Das Imagens:</label>
+            {{ form.codigo(placeholder="Codigo Das Imagens", class="form-control") }}
+
+            <br>
+            <button class="btn btn-primary mt-3" type="submit">Upload</button>
+        </form>
+
+
+      </div>
+    </div>
+    <!--Rodapé-->
+    <footer class="bg-dark text-white pt-3 pd-3">
+        
+      <div class="container">
+        <div class="row text-center">
+          <div class="col-md-12">
+            <p>Desenvolvido por: <a href="www.konnecta.com.br" target="_blank">kennecta</a> &copy;2022</p>
+          </div>
+        </div>
+      </div>
+        
+    </footer>
+    <!-- JavaScript Bundle with Popper -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
+</body>
+</html>
